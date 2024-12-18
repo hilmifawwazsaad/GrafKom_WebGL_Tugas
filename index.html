@@ -12,6 +12,10 @@
     <script text="text/javascript" src="js-utils/texture.js"></script>
     <script text="text/javascript" src="js-utils/IOhandler.js"></script>
     <script text="text/javascript" src="main.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         canvas {
             width: 100vw;
@@ -32,26 +36,26 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 123, 255, 0.8); /* Biru dengan transparansi */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             width: 300px;
             font-size: 16px;
+            color: white; /* Warna teks menjadi putih */
         }
-
-        .bio-item {
-            margin-bottom: 15px;
-        }
-
+        
         .bio-item label {
             font-weight: bold;
+            color: white; /* Warna label menjadi putih */
         }
-
+        
         .bio-item span {
             display: block;
-            margin-top: 5px;
+            margin-bottom: 10px;
+            color: white; /* Warna teks span menjadi putih */
         }
+        
 
         #controls {
             margin-top: 20px;
@@ -61,7 +65,7 @@
         button {
             padding: 10px;
             font-size: 16px;
-            margin: 5px;
+            margin: 6px;
             cursor: pointer;
         }
 
@@ -76,12 +80,9 @@
     <canvas id="canvas"></canvas>
 
     <div id="controls">
-        <!-- <div>
-            <button id="toggle-rotation">Play Rotation</button>
-        </div> -->
         <div class="zoom-controls">
-            <button id="zoom-in">+</button>
-            <button id="zoom-out">-</button>
+            <button id="zoom-out"class="btn btn-primary btn-lg">-</button>
+            <button id="zoom-in" class="btn btn-primary btn-lg">+</button>
         </div>
     </div>
 
@@ -100,7 +101,11 @@
         </div>
         <div class="bio-item">
             <label for="project">Proyek</label>
-            <span id="project">WebGL </span>
+            <span id="project">WebGL</span>
+        </div>
+        <div class="bio-item">
+            <label for="project">Kelas</label>
+            <span id="project">Grafika Komputer (D)</span>
         </div>
     </div>
 

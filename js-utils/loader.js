@@ -1,10 +1,10 @@
 "use strict";
 
 function parseOBJ(text) {
-    const positions = [[0, 0, 0]]; // Titik posisi
-    const texcoords = [[0, 0]]; // Koordinat tekstur
-    const normals = [[0, 0, 0]]; // Normal
-    const colors = [[0, 0, 0]]; // RGB
+    const positions = [[0, 0, 0]]; 
+    const texcoords = [[0, 0]]; 
+    const normals = [[0, 0, 0]]; 
+    const colors = [[0, 0, 0]]; 
 
     const vertexData = [positions, texcoords, normals, colors];
 

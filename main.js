@@ -1,5 +1,4 @@
 async function main() {
-    // Get A WebGL context
     const canvas = document.querySelector("#canvas");
     const gl = canvas.getContext("webgl");
 
@@ -53,18 +52,14 @@ async function main() {
 
             gl_FragColor = vec4(diffuse.rgb * diff + specular, diffuse.a);
         }
-
     `;
 
-    // Shader program setup
     const meshProgramInfo = webglUtils.createProgramInfo(gl, [vs, fs]);
 
-    // Load and parse OBJ file
     const response = await fetch("data/coins.obj");
     const text = await response.text();
     const obj = parseOBJ(text);
 
-    // Load and parse MTL file
     const mtlResponse = await fetch("data/coins.mtl");
     const mtlText = await mtlResponse.text();
     const materials = await parseMTL(mtlText);
@@ -73,15 +68,13 @@ async function main() {
     for (const [name, material] of Object.entries(materials)) {
         materialLib[name] = {
             u_diffuse: material.diffuse
-                ? [...material.diffuse, 1] // Add alpha = 1
-                : [1, 1, 1, 1], // Default white
+                ? [...material.diffuse, 1]
+                : [1, 1, 1, 1], 
         };
     }
 
-    // Prepare geometries and buffers
     const parts = obj.geometries.map(({ material, data }) => {
         if (!data.color) {
-        // Jika material adalah kaca_eevee (wadah), beri transparansi 30%
         if (material === "kaca_eevee") {
             data.color = { value: [1, 1, 1, 0.4] };
         } else {
@@ -94,7 +87,6 @@ async function main() {
         };
     });
 
-    // Set up camera and scene
     const extents = getGeometriesExtents(obj.geometries);
     const range = m4.subtractVectors(extents.max, extents.min);
     const objOffset = m4.scaleVector(
@@ -107,7 +99,7 @@ async function main() {
     const zFar = radius * 3;
 
     function render(time) {
-        time *= 0.001; // Convert to seconds
+        time *= 0.001;
 
         webglUtils.resizeCanvasToDisplaySize(gl.canvas);
         gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
@@ -134,7 +126,7 @@ async function main() {
         gl.useProgram(meshProgramInfo.program);
         webglUtils.setUniforms(meshProgramInfo, sharedUniforms);
 
-        rotation.y += 0.01; // Rotate around the y-axis
+        rotation.y += 0.01; 
         let u_world = m4.identity();
         u_world = m4.translate(u_world, ...objOffset);
         u_world = m4.yRotate(u_world, rotation.y);
@@ -154,7 +146,6 @@ async function main() {
     requestAnimationFrame(render);
 }
 
-// Utility Functions
 function getExtents(positions) {
     const min = positions.slice(0, 3);
     const max = positions.slice(0, 3);
