@@ -1,15 +1,42 @@
-<canvas id="canvas" style="background-color: #ffffff;"></canvas>
+<!DOCTYPE html>
+<html lang="en">
 
-<!--
-for most samples webgl-utils only provides shader compiling/linking and
-canvas resizing because why clutter the examples with code that's the same in every sample.
-See https://webglfundamentals.org/webgl/lessons/webgl-boilerplate.html
-and https://webglfundamentals.org/webgl/lessons/webgl-resizing-the-canvas.html
-for webgl-utils, m3, m4, and webgl-lessons-ui.
--->
-<script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
-<script src="https://webglfundamentals.org/webgl/resources/m4.js"></script>
-<script type="module" src="main.js"></script> 
-<script type="module" src="handler.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coins</title>
+    <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+    <script src="https://webglfundamentals.org/webgl/resources/m4.js"></script>
+    <script src="https://webglfundamentals.org/webgl/resources/m3.js"></script>
+    <script text="text/javascript" src="js-utils/loader.js"></script>
+    <script text="text/javascript" src="js-utils/texture.js"></script>
+    <script text="text/javascript" src="js-utils/IOhandler.js"></script>
+    <script text="text/javascript" src="main.js"></script>
+    <style>
+        canvas {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
 
-<link rel="stylesheet" type="text/css" href="style.css">
+        body {
+            margin: 0;
+            font-family: tahoma, sans-serif;
+            background-color: #ffff;
+            color: #000000;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                main();
+            });
+        </script>
+</body>
+
+</html>
