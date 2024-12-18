@@ -5,6 +5,13 @@ let zoom = 1; // Global zoom
 let isDragging = false; // State to track mouse dragging
 let lastMousePosition = { x: 0, y: 0 }; // Last mouse position
 
+// Function to handle zoom using buttons
+function setZoom(direction) {
+    zoom += direction * 0.1;
+    zoom = Math.min(Math.max(0.5, zoom), 3); // Limit zoom level between 0.5 and 3
+}
+
+// Creating handler for canvas interaction (drag and zoom)
 function createHandler(canvas) {
     // Mouse Down Event
     canvas.addEventListener("mousedown", (e) => {
@@ -38,4 +45,11 @@ function createHandler(canvas) {
         zoom = Math.min(Math.max(0.5, zoom), 3);
         e.preventDefault();
     });
+
+    // Button Event for Zoom In
+    document.getElementById("zoom-in").addEventListener("click", () => setZoom(-1));
+
+    // Button Event for Zoom Out
+    document.getElementById("zoom-out").addEventListener("click", () => setZoom(1));
+
 }

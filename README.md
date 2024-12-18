@@ -5,7 +5,7 @@
  
  5025221103
 
- ## Gambar Blender
+ ## Gambar Blender, Shading Workspace
 
 ![Alt text](images/coins-blender.png)
 

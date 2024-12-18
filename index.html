@@ -15,7 +15,7 @@
     <style>
         canvas {
             width: 100vw;
-            height: 100vh;
+            height: 80vh;
             display: block;
         }
 
@@ -25,6 +25,49 @@
             background-color: #ffff;
             color: #000000;
             overflow: hidden;
+            text-align: center;
+        }
+
+        #bio-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            font-size: 16px;
+        }
+
+        .bio-item {
+            margin-bottom: 15px;
+        }
+
+        .bio-item label {
+            font-weight: bold;
+        }
+
+        .bio-item span {
+            display: block;
+            margin-top: 5px;
+        }
+
+        #controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .zoom-controls {
+            display: inline-block;
+            margin: 10px;
         }
     </style>
 </head>
@@ -32,11 +75,40 @@
 <body>
     <canvas id="canvas"></canvas>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                main();
-            });
-        </script>
+    <div id="controls">
+        <!-- <div>
+            <button id="toggle-rotation">Play Rotation</button>
+        </div> -->
+        <div class="zoom-controls">
+            <button id="zoom-in">+</button>
+            <button id="zoom-out">-</button>
+        </div>
+    </div>
+
+    <div id="bio-container">
+        <div class="bio-item">
+            <label for="name">Nama</label>
+            <span id="name">Hilmi Fawwaz Sa'ad</span>
+        </div>
+        <div class="bio-item">
+            <label for="major">Jurusan</label>
+            <span id="major">Teknik Informatika</span>
+        </div>
+        <div class="bio-item">
+            <label for="semester">NRP</label>
+            <span id="semester">5025221103</span>
+        </div>
+        <div class="bio-item">
+            <label for="project">Proyek</label>
+            <span id="project">WebGL </span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            main();
+        });
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
 "use strict";
-// Referensi: https://webglfundamentals.org/webgl/lessons/webgl-load-obj.html
 
 function parseOBJ(text) {
     const positions = [[0, 0, 0]]; // Titik posisi
